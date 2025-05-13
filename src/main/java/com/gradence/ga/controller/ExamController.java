@@ -35,7 +35,7 @@ public class ExamController {
         this.examRepository = examRepository;
     }
 
-    // Create a new exam
+    // Create a new exam here
     @PostMapping
     public Exam createExam(@Valid @RequestBody Exam exam) {
               exam.setCreatedAt(LocalDateTime.now());
