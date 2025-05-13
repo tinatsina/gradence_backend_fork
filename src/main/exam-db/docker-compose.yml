@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: exam-db
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: exam_app
+      POSTGRES_USER: exam_user
+      POSTGRES_PASSWORD: strongpassword
+    volumes:
+      - exam-db-data:/var/lib/postgresql/data
+
+volumes:
+  exam-db-data:
