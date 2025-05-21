@@ -43,7 +43,7 @@ public class ExamController {
         return examRepository.save(exam);
     }
 
-    // Get all exams
+    // Get all exams again
     @GetMapping
     public List<Exam> getAllExams() {
         return examRepository.findAll();

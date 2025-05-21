@@ -3,11 +3,9 @@ package com.gradence.ga.security.service;
 import com.gradence.ga.model.User;
 import lombok.*;
 import org.springframework.security.core.*;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Getter
 @RequiredArgsConstructor
@@ -17,9 +15,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return user.getRoles().stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName()))
-                .collect(Collectors.toList());
+        return Collections.emptyList();
     }
 
     @Override public String getPassword() { return user.getPassword(); }

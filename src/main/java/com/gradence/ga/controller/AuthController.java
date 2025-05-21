@@ -20,7 +20,6 @@ public class AuthController {
     private final AuthenticationManager authManager;
     private final JwtUtils jwtUtils;
     private final UserRepository userRepo;
-    private final RoleRepository roleRepo;
     private final PasswordEncoder encoder;
 
     @PostMapping("/register")
@@ -30,8 +29,6 @@ public class AuthController {
         }
 
         user.setPassword(encoder.encode(user.getPassword()));
-        Role role = roleRepo.findByName("ROLE_TEACHER").orElseThrow(); // or ROLE_EXAMINER
-        user.setRoles(Set.of(role));
 
         userRepo.save(user);
         return ResponseEntity.ok("User registered successfully");
